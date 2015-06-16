@@ -1,1 +1,28 @@
-Hello {{ name }}!
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<table>
+    <caption>My To-Do List</caption>
+    <thead>
+    <tr>
+        <td>Created At</td>
+        <td>Task</td>
+        <td>Status</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in items %}
+    <tr>
+        <td>{{ item.createdAt|date("d/m/Y") }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.statusId }}</td>
+    </tr>        
+    {% endfor %}
+    </tbody>
+    <tfooter>
+    <tr>
+        <td colspan="3"> {{ items|length }} Item(s) found.</td>
+    </tr>
+    </tfooter>
+</table>
+{% endblock %}

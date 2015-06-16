@@ -1,0 +1,41 @@
+MDN\ListBundle\Entity\Item:
+    type: entity
+    table: item
+    id:
+        itemId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: item_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        statusId:
+            type: string
+            nullable: false
+            length: 1
+            fixed: true
+            comment: 'D - Done P - Pending'
+            default: P
+            column: status_id
+        createdAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: CURRENT_TIMESTAMP
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: CURRENT_TIMESTAMP
+            column: updated_at
+    lifecycleCallbacks: {  }

@@ -1,0 +1,15 @@
+
+# Installation
+
+$ php app/console generate:bundle
+
+$ php app/console generate:controller
+
+$ php app/console doctrine:mapping:import MDNListBundle yml
+
+$ php app/console doctrine:generate:entities MDNListBundle
+
+
+# Sample data
+
+$ insert into item (name) values ('Clean the room'), ('Wash the dishes'), ('Sell the table');
