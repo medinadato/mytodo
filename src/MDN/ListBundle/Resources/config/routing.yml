@@ -1,0 +1,3 @@
+mdn_list_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MDNListBundle:Default:index }
