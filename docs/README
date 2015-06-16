@@ -9,7 +9,9 @@ $ php app/console doctrine:mapping:import MDNListBundle yml
 
 $ php app/console doctrine:generate:entities MDNListBundle
 
+$ php app/console assets:install --symlink
+
 
 # Sample data
 
-$ insert into item (name) values ('Clean the room'), ('Wash the dishes'), ('Sell the table');
+$ insert into item (name, status_id) values ('Clean the room', 'P'), ('Wash the dishes', 'D'), ('Sell the table', 'P'), ('Sell the house', 'P');

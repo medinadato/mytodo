@@ -1,28 +1,40 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ asset('bundles/mdnlist/css/style.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-<table>
-    <caption>My To-Do List</caption>
-    <thead>
-    <tr>
-        <td>Created At</td>
-        <td>Task</td>
-        <td>Status</td>
-    </tr>
-    </thead>
-    <tbody>
-    {% for item in items %}
-    <tr>
-        <td>{{ item.createdAt|date("d/m/Y") }}</td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.statusId }}</td>
-    </tr>        
-    {% endfor %}
-    </tbody>
-    <tfooter>
-    <tr>
-        <td colspan="3"> {{ items|length }} Item(s) found.</td>
-    </tr>
-    </tfooter>
-</table>
+    <form action="" enctype="multipart/form-data">
+        <table>
+            <caption>My To-Do List</caption>
+            <thead>
+                <tr>
+                    <td></td>
+                    <td>Created At</td>
+                    <td>Task</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="status[{{ item.itemId }}]" {% if(item.statusId == 'P') %} checked="checked" alt="Pending" {% else %} alt="Done" {% endif %} />
+                        </td>
+                        <td>{{ item.createdAt|date("d/m/Y") }}</td>
+                        <td>{{ item.name }}</td>
+                    </tr>        
+                {% endfor %}
+            </tbody>
+            <tfooter>
+                <tr>
+                    <td colspan="3"> {{ items|length }} Item(s) found.</td>
+                </tr>
+            </tfooter>
+        </table>
+    </form>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/mdnlist/js/mytodo.js') }}" type="text/javascript"></script> 
 {% endblock %}
