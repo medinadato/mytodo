@@ -1,17 +1,30 @@
 
 # Installation
 
-$ php app/console generate:bundle
+## Application
 
-$ php app/console generate:controller
-
-$ php app/console doctrine:mapping:import MDNListBundle yml
-
-$ php app/console doctrine:generate:entities MDNListBundle
-
+$ composer.phar install --prefer-dist
 $ php app/console assets:install --symlink
 
+## Database
 
-# Sample data
+$ mysql -uroot -p -e 'create schema mytodo'
 
-$ insert into item (name, status_id) values ('Clean the room', 'P'), ('Wash the dishes', 'D'), ('Sell the table', 'P'), ('Sell the house', 'P');
+### Sample data
+
+$ mysql > INSERT INTO priority VALUES (1, 'Normal', 0), (2, 'Important', 1);
+$ mysql > INSERT INTO item (name, priority_id, status_id) values ('Clean the room', 1, 'P'), ('Wash the dishes', 1, 'D'), ('Sell the table', 2, 'P'), ('Sell the house', 1, 'P');
+
+## Server
+
+Create a local.mytodo file in symfony using the docs/nginx/nginx.conf
+
+
+# Extras
+
+$ php app/console generate:bundle
+$ php app/console generate:controller
+$ php app/console doctrine:mapping:import MDNListBundle yml
+$ php app/console doctrine:generate:entities MDNListBundle
+
+
