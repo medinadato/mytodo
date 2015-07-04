@@ -1,9 +1,9 @@
 <?php
 
-namespace MDN\ListBundle;
+namespace MDN\TodoBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class MDNListBundle extends Bundle
+class MDNTodoBundle extends Bundle
 {
 }

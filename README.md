@@ -16,22 +16,29 @@ $ mysql -uroot -p -e 'create schema mytodo'
 
 Then forward Engineering the design model in docs/db
 
+### In case you need to import more entities
+
+$ php app/console doctrine:mapping:import --force MDNTodoBundle yml
+$ php app/console doctrine:mapping:convert annotation ./src
+$ php app/console doctrine:generate:entities MDNTodoBundle
 
 ### Sample data
 
-$ mysql > INSERT INTO priority VALUES (1, 'Normal', 0), (2, 'Important', 1);
-$ mysql > INSERT INTO item (name, priority_id, status_id) values ('Clean the room', 1, 'P'), ('Wash the dishes', 1, 'D'), ('Sell the table', 2, 'P'), ('Sell the house', 1, 'P');
+$ mysql > INSERT INTO user VALUES (1, 'Renato', null), (2, 'John', null);
+$ mysql > INSERT INTO task (name, user_id, status_id) values ('Clean the room', 1, 'P'), ('Wash the dishes', 1, 'D'), ('Sell the table', 2, 'P'), ('Sell the house', 1, 'P');
 
 
 ## Application
 
 $ composer.phar install --prefer-dist
+
 $ php app/console assets:install --symlink
 
 
 # Entities (if not existing)
 
-$ php app/console doctrine:mapping:import MDNListBundle yml
-$ php app/console doctrine:generate:entities MDNListBundle
+
+
+
 
 

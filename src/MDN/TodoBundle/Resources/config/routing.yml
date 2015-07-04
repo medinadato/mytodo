@@ -1,11 +1,11 @@
 # It's needed for annotations
 mdn:
-    resource: @MDNListBundle/Controller/
+    resource: @MDNTodoBundle/Controller/
     type:     annotation
     
     
 # I'm not using it at the moment. Apparently annotations are the way to go
 #mdn_list_homepage:
 #    path:     /
-#    defaults: { _controller: MDNListBundle:Default:index }
+#    defaults: { _controller: MDNTodoBundle:Default:index }
 

@@ -1,5 +1,5 @@
 mdn_list:
-    resource: "@MDNListBundle/Resources/config/routing.yml"
+    resource: "@MDNTodoBundle/Resources/config/routing.yml"
     prefix:   /
 
 app:

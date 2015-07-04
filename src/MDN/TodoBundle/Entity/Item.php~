@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Item
+ * 
+ * @ORM\Entity(repositoryClass="MDN\ListBundle\Entity\ItemRepository")
  */
 class Item
 {
@@ -135,5 +137,33 @@ class Item
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+    /**
+     * @var \MDN\ListBundle\Entity\Priority
+     */
+    private $priority;
+
+
+    /**
+     * Set priority
+     *
+     * @param \MDN\ListBundle\Entity\Priority $priority
+     * @return Item
+     */
+    public function setPriority(\MDN\ListBundle\Entity\Priority $priority = null)
+    {
+        $this->priority = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Get priority
+     *
+     * @return \MDN\ListBundle\Entity\Priority 
+     */
+    public function getPriority()
+    {
+        return $this->priority;
     }
 }

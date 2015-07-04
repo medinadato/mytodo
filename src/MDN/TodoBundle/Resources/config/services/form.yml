@@ -1,0 +1,5 @@
+services:
+    mdn_todo.form.type.task:
+        class: MDN\TodoBundle\Resources\Form\TaskType
+        tags:
+            - { name: form.type, alias: task }

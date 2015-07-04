@@ -1,0 +1,39 @@
+<?php
+
+namespace MDN\TodoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Priority
+ *
+ * @ORM\Table(name="priority")
+ * @ORM\Entity
+ */
+class Priority
+{
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="id", type="boolean")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="sort", type="boolean", nullable=false)
+     */
+    private $sort;
+
+
+}
