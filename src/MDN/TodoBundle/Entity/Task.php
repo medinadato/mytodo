@@ -45,14 +45,12 @@ class Task
     /**
      * @var \MDN\TodoBundle\Entity\User
      *
-     * @ORM\ManyToOne(targetEntity="MDN\TodoBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="MDN\TodoBundle\Entity\User", inversedBy="tasks")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
      */
     private $user;
-
-
 
     /**
      * Get id

@@ -3,6 +3,7 @@
 namespace MDN\TodoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User
@@ -35,7 +36,16 @@ class User
      */
     private $createdAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity="MDN\TodoBundle\Entity\Task", mappedBy="user")
+     */
+    private $tasks;
 
+
+    public function __construct()
+    {
+        $this->tasks = ArrayCollection;
+    }
 
     /**
      * Get id
@@ -91,5 +101,35 @@ class User
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+    
+    /**
+     * 
+     * @return Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getTasks()
+    {
+        return $this->tasks;
+    }
+
+    /**
+     * 
+     * @param Doctrine\Common\Collections\ArrayCollection $tasks
+     * @return \MDN\TodoBundle\Entity\User
+     */
+    public function setTasks(ArrayCollection $tasks)
+    {
+        $this->tasks = $tasks;
+        
+        return $this;
+    }
+
+    /**
+     * 
+     * @return type
+     */
+    public function __toString()
+    {
+        return $this->getName();
     }
 }
