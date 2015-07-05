@@ -15,7 +15,23 @@ use MDN\TodoBundle\Form\TaskType;
  */
 class DefaultController extends Controller
 {
-
+    /**
+     * Increment
+     *
+     * @Route("/default/increment", name="increment")
+     * @Method("GET")
+     * @Template()
+     */
+    public function incrementAction()
+    {
+        $value = 1;
+        
+        return new \Symfony\Component\HttpFoundation\Response(
+                'Counter value now is ' . $value
+                );
+        
+    }
+    
     /**
      * HOme page.
      *
